@@ -1,5 +1,5 @@
 FROM jenkins
 USER root
-RUN apt-get install cmake
+RUN apt-get install build-essential cmake
 USER jenkins
 
