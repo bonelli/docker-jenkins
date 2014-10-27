@@ -1,5 +1,5 @@
 FROM jenkins
 USER root
-RUN apt-get update && apt-get install -y maven build-essential cmake octave octave-io && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y maven build-essential cmake octave octave-io && apt-get clean && m -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 USER jenkins
 
