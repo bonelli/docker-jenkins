@@ -4,7 +4,8 @@ RUN apt-get update && apt-get install -y isc-dhcp-client maven build-essential c
 
 RUN mv /sbin/dhclient /usr/sbin/dhclient
 RUN echo "jenkins ALL=(root) NOPASSWD: /usr/sbin/dhclient" >> /etc/sudoers
+COPY dhcp-jenkins.sh /usr/local/bin/dhcp-jenkins.sh
 
 USER jenkins
-ENTRYPOINT ["sudo /usr/sbin/dhclient eth0 && /usr/local/bin/jenkins.sh"]
+ENTRYPOINT ["/usr/local/bin/dhcp-jenkins.sh"]
 
